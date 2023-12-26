@@ -1,0 +1,74 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        #studentDetails {
+            background-color: #f0f8ff; /* AliceBlue */
+        }
+
+        #reportingSystem {
+            background-color: #ffe4e1; /* MistyRose */
+        }
+
+        #studentList {
+            background-color: #f5f5f5; /* Gainsboro */
+        }
+    </style>
+</head>
+<body>
+    <h1>School Management System</h1>
+
+    <section id="studentDetails">
+        <h2>Student Details</h2>
+        <form method="POST" action="{{ url_for('add_student') }}">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade" required>
+
+            <label for="contact">Contact Information:</label>
+            <input type="text" id="contact" name="contact" required>
+
+            <button type="submit">Add Student</button>
+        </form>
+    </section>
+
+    <section id="reportingSystem">
+        <!-- Add reporting system elements and code here -->
+    </section>
+
+    <section id="studentList">
+        <h2>Student List</h2>
+        <ul>
+            {% for student in students %}
+                <li>{{ student.name }} - {{ student.grade }} - {{ student.contact }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
